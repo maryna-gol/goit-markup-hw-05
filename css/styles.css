@@ -25,6 +25,7 @@ font-family: 'Roboto', sans-serif; #212121 */
   --section-pb: 94px;
   --margin-bottom-studia: 10px;
   --icon-color: #afb1b8;
+  --modal-background: rgba(0, 0, 0, 0.2);
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -106,6 +107,7 @@ img {
 .nav-list {
   display: flex;
   align-items: center;
+  transition: transfom 250ms var(--timing-function);
 }
 .nav-item:not(:last-child) {
   margin-right: 50px;
@@ -153,7 +155,7 @@ img {
   content: "";
   position: absolute;
   display: block;
-  top: 247%;
+  top: 250%;
   left: 0;
   width: 100%;
   height: 4px;
@@ -200,6 +202,8 @@ img {
   margin-left: auto;
   display: flex;
   align-items: center;
+
+  transition: transfom 250ms var(--timing-function);
 }
 .contact-list:hover,
 .contact-list:focus {
@@ -213,6 +217,7 @@ img {
 .contakt-icon {
   margin-right: 10px;
   fill: var(--icon-color);
+  transition: fill 250ms var(--timing-function);
 }
 /*====== END HEADER=======*/
 
@@ -257,7 +262,7 @@ img {
   background-size: cover;
 }
 
-/* Button */
+/* Modal Button */
 .modal-btn {
   padding: 10px 32px;
   display: block;
@@ -277,38 +282,15 @@ img {
 
   color: var(--main-color);
   background: var(--accent-color);
+
+  transition: transfom 250ms var(--timing-function);
 }
 .modal-btn:hover,
 .modal-btn:focus {
   background-color: #188ce8;
 }
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-}
 
-.backdrop.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
 
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 528px;
-  height: 581px;
-  transform: translate(-50%, -50%);
-
-  background-color: #fff;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-}
 
 /*===== END HERRO ====*/
 /* ==== ADVATAGE === */
@@ -521,9 +503,13 @@ img {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+
+  ;
 }
 .team-icons {
   fill: var(--icon-color);
+  transition: fill 250ms var(--timing-function);
+
 }
 .icon-items-link:focus .icons-thumb,
 .icon-items-link:hover .icons-thumb,
@@ -532,7 +518,9 @@ img {
   fill: var(--main-color);
   background-color: var(--accent-color);
 }
-
+.icon-items-link {
+  transition: color 250ms var(--timing-function);
+}
 /*======= END OUR TEAM ========*/
 /*===== PERMANENT CLIENTS =====*/
 
@@ -554,6 +542,7 @@ img {
 .clients-list {
   display: flex;
   justify-content: space-between;
+  transition: transfom 250ms var(--timing-function);
 }
 
 .clients-wrapper {
@@ -571,11 +560,19 @@ img {
 }
 .clients-link:hover .clients-logo {
   fill: var(--accent-color);
+
+  
 }
 .clients-link:hover .clients-wrapper {
   border: 1px solid var(--accent-color);
 }
-
+.items {
+  transition: transfom 250ms var(--timing-function);
+}
+.clients-link {
+  transition: fill 250ms var(--timing-function),
+  border-color 250ms var(--timing-function);
+}
 /*===========END PERMANENT CLIENTS==========*/
 /*===== FOOTER =======*/
 .foter-wraper:not(:last-child) {
@@ -659,6 +656,8 @@ img {
   align-items: center;
   fill: var(--main-color);
   background: rgba(255, 255, 255, 0.1);
+
+  transition: background-color 250ms var(--timing-function);
 }
 .subscribe-list-icon {
   width: 20px;
@@ -741,7 +740,9 @@ img {
   display: flex;
   justify-content: center;
 
-  transition: bckground-color 250ms var(--timing-function);
+  transition: bckground-color 250ms var(--timing-function),
+  color 250ms var(--timing-function),
+  box-shadow 250ms var(--timing-function);
 
   /*transition-property: bckground-color;
   transition-duration: 250ms;
@@ -800,40 +801,91 @@ img {
   display: block;
 }
 
-.cards-hover {
-  position: relative;
+.card-thumb{
+ position: relative; 
+ overflow: hidden;
 }
-
-
-.cards-cover {
-
+.card-overlay{
   position: absolute;
-  
-  bottom: 0;
+  top: 0;
   left: 0;
-  padding: 63px 24px;
-  height: 0px;
   width: 100%;
+  height: 100%;
+  background-color:var(--accent-color);
+  transform:translateY(100%);
+  transition: 250ms var(--timing-function);
 
-  background-color: rgba(33, 150, 243, 0.9);
-  color: var(--main-color);
+}
+.portfolio-link:hover .card-overlay{
+transform: translateY(0);
+}
+.portfolio-link {
+  transition: 250ms var(--timing-function);
+}
 
-  font-weight: 400;
+.card-content{
+  display: block;
+  padding: 63px 24px;
+  font-style: normal;
+  font-weight: normal;
   font-size: 18px;
-  line-height: 1.56;
+  line-height: 1.5;
+
   letter-spacing: 0.03em;
-
-  opacity: 0;
-  pointer-events: none;
-  transition-property: translatex(0);
-  transition-duration: 250ms;
-  transition-timing-function: linear;
-  transition-delay: 0;
-}
-.portfolio-link:hover .cards-cover {
-  opacity: 1;
-  height: 294px;
-}
-
+  color: var(--main-color);
+ }
 
 /*====== END PORTFOLIO ========*/
+
+/* Modal window */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /*width: 100%;
+  height: 100%;*/
+  background-color: var(--modal-background);
+  transition: opacity 250ms var(--timing-function);
+  
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+  background-color: var(--main-color);
+  border-radius: 4px;
+
+  transition: transform 250ms var(--timing-function);
+}
+
+.modal-close-btn {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: 8px;
+  right: 8px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+
