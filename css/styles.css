@@ -290,6 +290,8 @@ img {
 .modal-btn:hover,
 .modal-btn:focus {
   background-color: #188ce8;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /*===== END HERRO ====*/
@@ -530,6 +532,13 @@ img {
   background-color: var(--accent-color);
 }
 .icon-items-link {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+
   transition: color 250ms var(--timing-function);
 }
 /*======= END OUR TEAM ========*/
@@ -856,7 +865,7 @@ img {
   /*width: 100%;
   height: 100%;*/
   background-color: var(--modal-background);
-  transition: opacity 250ms var(--timing-function);
+  transition: all 2500ms var(--timing-function);
 }
 
 .modal {
@@ -886,6 +895,7 @@ img {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   cursor: pointer;
+  transition: transform 250ms var(--timing-function);
 }
 
 .is-hidden {
